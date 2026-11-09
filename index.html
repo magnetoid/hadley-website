@@ -180,6 +180,9 @@ nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(14px);padding:14
 .t-info{padding:26px 28px;}
 .t-name{font-family:var(--display);font-size:20px;letter-spacing:.06em;margin-bottom:2px;}
 .t-role{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.t-region{font-size:11px;line-height:1.6;color:var(--muted);margin-bottom:8px;}
+.t-contact{overflow-wrap:anywhere;}
+.t-info .t-bio{margin-top:16px;}
 .t-bio{font-size:12px;line-height:1.75;color:var(--muted);}
 .t-contact{margin-top:10px;font-size:11px;}
 .t-contact a{color:var(--muted);text-decoration:none;transition:color .2s;}
@@ -714,8 +717,9 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       <div class="t-info">
         <div class="t-name">DR JAMES GUNN</div>
         <div class="t-role">Co-Founder &amp; Managing Partner</div>
-        <p class="t-bio">25+ years in government relations, investment promotion, corporate diplomacy and crisis management across Europe, Asia and Africa. Former NED to PE and real estate investment funds. Adviser to the EBRD, Deloitte and EIT. MIPR MCIPR.</p>
+        <div class="t-region">Not specified</div>
         <div class="t-contact"><a href="mailto:jgunn@hadleyconsulting.global">jgunn@hadleyconsulting.global</a></div>
+        <p class="t-bio">25+ years in government relations, investment promotion, corporate diplomacy and crisis management across Europe, Asia and Africa. Former NED to PE and real estate investment funds. Adviser to the EBRD, Deloitte and EIT. MIPR MCIPR.</p>
       </div>
     </div>
 
@@ -729,8 +733,9 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       <div class="t-info">
         <div class="t-name">KOK KUEN (KK) POON</div>
         <div class="t-role">Co-Founder &amp; Partner</div>
-        <p class="t-bio">Cambridge-trained strategic communications adviser. Former VP at BlackRock, Regional Head at Willis Towers Watson, and Global Head of PR at Noble Group. Adviser to the Abu Dhabi Government Media Office.</p>
+        <div class="t-region">Not specified</div>
         <div class="t-contact"><a href="mailto:kkpoon@hadleyconsulting.global">kkpoon@hadleyconsulting.global</a></div>
+        <p class="t-bio">Cambridge-trained strategic communications adviser. Former VP at BlackRock, Regional Head at Willis Towers Watson, and Global Head of PR at Noble Group. Adviser to the Abu Dhabi Government Media Office.</p>
       </div>
     </div>
 
@@ -743,7 +748,8 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       <div class="t-info">
         <div class="t-name">LEONARDO PARKINSON</div>
         <div class="t-role">Chief of Staff</div>
-        <div class="t-contact" style="margin-top:8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Global Operations</div>
+        <div class="t-region">Global Operations</div>
+        <div class="t-contact t-contact-unavailable">Email not listed</div>
       </div>
     </div>
 
@@ -755,22 +761,23 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       <div class="t-info">
         <div class="t-name">NIKOLA IGNJATOVIC</div>
         <div class="t-role">Senior Consultant</div>
-        <p class="t-bio">SE Europe specialist with deep operational and political networks across Serbia and the Balkans. Expertise in regulatory navigation, government liaison and cross-border business structuring.</p>
-        <div class="t-contact" style="margin-top:6px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Central Europe · SE Europe · CIS</div>
+        <div class="t-region">Central Europe · SE Europe · CIS</div>
         <div class="t-contact"><a href="mailto:norovic@hadleyconsulting.global">norovic@hadleyconsulting.global</a></div>
+        <p class="t-bio">SE Europe specialist with deep operational and political networks across Serbia and the Balkans. Expertise in regulatory navigation, government liaison and cross-border business structuring.</p>
       </div>
     </div>
 
     <div class="team-card">
       <div class="t-photo" style="background:#1e1e1e;overflow:hidden;">
-        <img src="assets/mydul-khan.jpg" alt="MD Mydul Khan" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+        <div class="t-init">MK</div>
         <div class="team-stripe"></div>
       </div>
       <div class="t-info">
         <div class="t-name">MD MYDUL KHAN</div>
-        <div class="t-role">Bangladesh &amp; South Asia Adviser</div>
-        <p class="t-bio">Barrister, Lincoln's Inn (London). Founding Partner, Lex Juris (Dhaka). International corporate and banking lawyer and FDI specialist.</p>
+        <div class="t-role">Adviser</div>
+        <div class="t-region">Bangladesh &amp; South Asia</div>
         <div class="t-contact"><a href="mailto:mydulkhan@lexjurisbd.com">mydulkhan@lexjurisbd.com</a></div>
+        <p class="t-bio">Barrister, Lincoln's Inn (London). Founding Partner, Lex Juris (Dhaka). International corporate and banking lawyer and FDI specialist.</p>
       </div>
     </div>
 
@@ -782,7 +789,9 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       </div>
       <div class="t-info">
         <div class="t-name">DR MICHAEL DADA EMBA MIB</div>
-        <div class="t-role">Senior Advisor — Nigeria &amp; ECOWAS · Budapest · Lagos · London</div>
+        <div class="t-role">Senior Advisor</div>
+        <div class="t-region">Nigeria &amp; ECOWAS · Budapest · Lagos · London</div>
+        <div class="t-contact t-contact-unavailable">Email not listed</div>
         <p class="t-bio">Experienced commercial director specialising in frontier markets, building economic cooperation between Europe and West Africa. Connects private enterprises, investors and policymakers to unlock growth opportunities across high-potential emerging markets, facilitating cross-border trade, strategic alliances and economic integration.</p>
       </div>
     </div>
@@ -794,7 +803,9 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       </div>
       <div class="t-info">
         <div class="t-name">MOUREEN MATHENGE</div>
-        <div class="t-role">Senior Advisor — East Africa · Nairobi</div>
+        <div class="t-role">Senior Advisor</div>
+        <div class="t-region">East Africa · Nairobi</div>
+        <div class="t-contact t-contact-unavailable">Email not listed</div>
         <p class="t-bio">20+ years in business strategy and development across Kenya and the wider East African region. Advises governments, corporates and institutions on market entry, strategic planning and business transformation. Strong record forging partnerships between foreign investors and local regulatory authorities, and supporting organisations in articulating a compelling growth story to attract capital and institutional partners.</p>
       </div>
     </div>
@@ -806,7 +817,9 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       </div>
       <div class="t-info">
         <div class="t-name">RAMORULA ELVIS MOLOPE</div>
-        <div class="t-role">Senior Advisor — South &amp; Southern Africa</div>
+        <div class="t-role">Senior Advisor</div>
+        <div class="t-region">South &amp; Southern Africa</div>
+        <div class="t-contact t-contact-unavailable">Email not listed</div>
         <p class="t-bio">25+ years of executive leadership across Southern Africa spanning infrastructure, mining, energy and technology. Former Head of Government Relations at Siemens and Executive Director at Compuware Corporation. Track record in capital raising, SADC regulatory navigation, public-private partnerships and cross-border investment facilitation.</p>
       </div>
     </div>
@@ -814,13 +827,14 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
     <!-- ROW 4: More Regional Advisers -->
     <div class="team-card">
       <div class="t-photo">
-        <div class="t-init">WH</div>
+        <img src="assets/mydul-khan.jpg?v=weibin-corrected" alt="Weibin Han" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
         <div class="team-stripe"></div>
       </div>
       <div class="t-info">
         <div class="t-name">WEIBIN HAN</div>
         <div class="t-role">Senior Advisor</div>
-        <div class="t-contact" style="margin-top:8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">China &amp; Central Asia</div>
+        <div class="t-region">China &amp; Central Asia</div>
+        <div class="t-contact t-contact-unavailable">Email not listed</div>
       </div>
     </div>
 
@@ -832,7 +846,8 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       <div class="t-info">
         <div class="t-name">VICTOR</div>
         <div class="t-role">Senior Advisor</div>
-        <div class="t-contact" style="margin-top:8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Central America &amp; Mexico</div>
+        <div class="t-region">Central America &amp; Mexico</div>
+        <div class="t-contact t-contact-unavailable">Email not listed</div>
       </div>
     </div>
 
@@ -844,6 +859,8 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
       <div class="t-info">
         <div class="t-name">MARKO TIOSAVLJEVIC</div>
         <div class="t-role">Director of Technology and AI</div>
+        <div class="t-region">Not specified</div>
+        <div class="t-contact t-contact-unavailable">Email not listed</div>
       </div>
     </div>
 

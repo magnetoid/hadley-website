@@ -378,7 +378,7 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 </div>
 <div class="contact-r">
 <div class="form-title">SEND AN ENQUIRY</div>
-<div id="contactForm">
+<form id="contactForm" onsubmit="submitForm(event)">
 <div class="fg2">
 <div class="fg"><label class="fl">First Name</label><input class="fi" id="fname" required="" type="text"/></div>
 <div class="fg"><label class="fl">Last Name</label><input class="fi" id="lname" required="" type="text"/></div>
@@ -399,8 +399,10 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 </div>
 <div class="fg"><label class="fl">Brief Overview</label><textarea class="ft" id="msg" placeholder="Describe your mandate or the challenge you are working through…"></textarea></div>
 <p class="form-note">Your information will be used solely to respond to your enquiry and will be handled in accordance with our privacy policy. This form is protected against spam. <a href="#">Privacy Policy</a>.</p>
-<button class="fsub" onclick="submitForm()">Submit Enquiry →</button>
-</div>
+<div style="position:absolute;left:-9999px" aria-hidden="true"><input id="website" name="website" tabindex="-1" autocomplete="off"/></div>
+<p id="formError" role="alert" hidden></p>
+<button class="fsub" type="submit">Submit Enquiry →</button>
+</form>
 <div class="form-confirm" id="formConfirm">
 <h3>THANK YOU</h3>
 <p>Your enquiry has been received. A member of the Hadley team will respond within one business day.</p>
@@ -473,19 +475,30 @@ function closeMobile(){
   document.getElementById("mobileMenu").classList.remove("open");
 }
 
-function submitForm(){
-  const fname = document.getElementById("fname").value.trim();
-  const email = document.getElementById("email").value.trim();
-  if(!fname || !email){
-    alert("Please enter your name and email address.");
-    return;
-  }
-  if(!/^[^@]+@[^@]+\.[^@]+$/.test(email)){
-    alert("Please enter a valid email address.");
-    return;
-  }
-  document.getElementById("contactForm").style.display = "none";
-  document.getElementById("formConfirm").style.display = "block";
+async function submitForm(event){
+  event.preventDefault();
+  const form = document.getElementById("contactForm");
+  if (!form.reportValidity()) return;
+  const button = form.querySelector("button[type=submit]");
+  const error = document.getElementById("formError");
+  if (button.disabled) return;
+  button.disabled = true;
+  error.hidden = true;
+  try {
+    const fields = ["fname", "lname", "org", "email", "enquiry", "msg", "website"];
+    const data = Object.fromEntries(fields.map(id => [id, document.getElementById(id).value.trim()]));
+    const response = await fetch("/api/contact", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data), signal: AbortSignal.timeout(30000)
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) throw new Error(result.message || "Unable to send your enquiry.");
+    form.style.display = "none";
+    document.getElementById("formConfirm").style.display = "block";
+  } catch (failure) {
+    error.textContent = failure.name === "TimeoutError" ? "Delivery could not be confirmed. Please email jgunn@hadleyconsulting.global directly." : (failure.message || "Unable to send. Please email jgunn@hadleyconsulting.global directly.");
+    error.hidden = false;
+  } finally { button.disabled = false; }
 }
 
 document.querySelectorAll("a[href=\"#\"]").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));

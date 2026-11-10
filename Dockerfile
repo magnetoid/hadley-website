@@ -1,4 +1,8 @@
 FROM nginx:1.27-alpine
+RUN apk add --no-cache python3 supervisor ca-certificates
+COPY contact_server.py /app/contact_server.py
+COPY supervisord.conf /etc/supervisord.conf
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY index.html /usr/share/nginx/html/index.html
 COPY robots.txt sitemap.xml /usr/share/nginx/html/

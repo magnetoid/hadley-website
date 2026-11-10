@@ -50,10 +50,11 @@ def deliver(data):
         'Organisation: ' + data['org'], 'Email: ' + data['email'],
         'Practice area: ' + data['enquiry'], '', data['msg']]))
     # Recipient is a local mailbox on this server. Never permit arbitrary recipients.
-    with smtplib.SMTP(os.getenv('SMTP_HOST', 'tetra.imbamarketing.com'), 25, timeout=15) as smtp:
+    with smtplib.SMTP(os.getenv('SMTP_HOST', 'tetra.imbamarketing.com'), 587, timeout=15) as smtp:
         smtp.ehlo()
         smtp.starttls(context=ssl.create_default_context())
         smtp.ehlo()
+        smtp.login(RECIPIENT, os.environ['SMTP_PASSWORD'])
         refused = smtp.send_message(message)
         if refused:
             raise smtplib.SMTPException('Recipient refused')

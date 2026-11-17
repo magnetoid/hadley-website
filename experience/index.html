@@ -37,6 +37,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(14px);padding:14px 52px;border-bottom:1px solid var(--border);}
 .logo{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--white);text-decoration:none;}
 .logo span{color:var(--accent);}
+.logo .brand-image{display:block;width:180px;height:auto;max-width:100%;}
+@media(max-width:600px){.logo .brand-image{width:145px;}}
 .nav-links{display:flex;gap:32px;list-style:none;}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color .2s;}
 .nav-links a:hover,nav-links a.active{color:var(--white);}
@@ -334,7 +336,7 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 <a href="/contact/">Contact</a>
 </div>
 <nav id="nav">
-<a class="logo" href="/">HADLEY<span>.</span></a>
+<a class="logo" href="/"><img alt='\"Hadley' class='\"brand-image\"/' consulting\"="" height='\"517\"' src='\"/assets/hadley-logo-v1.jpg\"' width='\"1280\"'/></a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
 <li><a href="/about/">About</a></li>
@@ -451,7 +453,7 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 <!-- FOOTER -->
 <footer>
 <div class="f-brand">
-<a class="logo" href="/">HADLEY<span style="color:var(--accent)">.</span></a>
+<a class="logo" href="/"><img alt='\"Hadley' class='\"brand-image\"/' consulting\"="" height='\"517\"' src='\"/assets/hadley-logo-v1.jpg\"' width='\"1280\"'/></a>
 <p class="f-tag">Strategic advisory for complex and frontier markets.<br/>London · Belgrade · Hong Kong</p>
 </div>
 <div class="f-links">

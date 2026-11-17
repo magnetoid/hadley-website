@@ -13,5 +13,8 @@ COPY experience/ /usr/share/nginx/html/experience/
 COPY insights/ /usr/share/nginx/html/insights/
 COPY team/ /usr/share/nginx/html/team/
 COPY contact/ /usr/share/nginx/html/contact/
+COPY privacy/ /usr/share/nginx/html/privacy/
+COPY terms/ /usr/share/nginx/html/terms/
+COPY cookies/ /usr/share/nginx/html/cookies/
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 CMD wget -q -O /dev/null http://127.0.0.1:3000/ || exit 1

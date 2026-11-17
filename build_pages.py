@@ -5,7 +5,7 @@ root=Path(__file__).parent
 source=root/'source.html'
 if not source.exists(): source.write_text((root/'index.html').read_text())
 original=BeautifulSoup(source.read_text(),'html.parser')
-ids=['home','about','services','experience','insights','team','contact']
+ids=['home','about','services','experience','insights','team','contact','privacy','terms','cookies']
 base='https://www.hadleyconsulting.global'
 urls={k:'/' if k=='home' else '/'+k+'/' for k in ids}
 for key in ids:

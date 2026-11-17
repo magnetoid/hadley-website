@@ -478,9 +478,9 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 <li><a href="/services/">Defence &amp; Security</a></li>
 </ul>
 </div>
-</footer>
+<p><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Use</a> · <a href="/cookies/">Cookie Notice</a> · </p></footer>
 <div class="f-bottom">
-<span class="f-copy">© 2026 Hadley Consulting Limited. Registered in Hong Kong SAR · No. 76884161</span>
+<span class="f-copy">© 2026 Hadley Consulting Limited. 7F Low Block, Grand Millennium Plaza, 181 Queens Road, Central, Hong Kong · Registered in Hong Kong SAR · No. 76884161</span>
 <span class="f-copy">hadleyconsulting.global</span>
 </div>
 <script>window.addEventListener("scroll",()=>{
@@ -494,24 +494,36 @@ function closeMobile(){
   document.getElementById("mobileMenu").classList.remove("open");
 }
 
-function submitForm(){
-  const fname = document.getElementById("fname").value.trim();
-  const email = document.getElementById("email").value.trim();
-  if(!fname || !email){
-    alert("Please enter your name and email address.");
-    return;
-  }
-  if(!/^[^@]+@[^@]+\.[^@]+$/.test(email)){
-    alert("Please enter a valid email address.");
-    return;
-  }
-  document.getElementById("contactForm").style.display = "none";
-  document.getElementById("formConfirm").style.display = "block";
+async function submitForm(event){
+  event.preventDefault();
+  const form = document.getElementById("contactForm");
+  if (!form.reportValidity()) return;
+  const button = form.querySelector("button[type=submit]");
+  const error = document.getElementById("formError");
+  if (button.disabled) return;
+  button.disabled = true;
+  error.hidden = true;
+  try {
+    const fields = ["fname", "lname", "org", "email", "enquiry", "msg", "website"];
+    const data = Object.fromEntries(fields.map(id => [id, document.getElementById(id).value.trim()]));
+    const response = await fetch("/api/contact", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data), signal: AbortSignal.timeout(30000)
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) throw new Error(result.message || "Unable to send your enquiry.");
+    form.style.display = "none";
+    document.getElementById("formConfirm").style.display = "block";
+  } catch (failure) {
+    error.textContent = failure.name === "TimeoutError" ? "Delivery could not be confirmed. Please email jgunn@hadleyconsulting.global directly." : (failure.message || "Unable to send. Please email jgunn@hadleyconsulting.global directly.");
+    error.hidden = false;
+  } finally { button.disabled = false; }
 }
 
 document.querySelectorAll("a[href=\"#\"]").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));
 
 document.getElementById("burger").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggleMobile();}});
-</script>
-</body>
+
+document.getElementById("burger").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggleMobile();}});
+</script></body>
 </html>

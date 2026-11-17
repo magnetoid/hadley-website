@@ -398,9 +398,9 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 </select>
 </div>
 <div class="fg"><label class="fl">Brief Overview</label><textarea class="ft" id="msg" placeholder="Describe your mandate or the challenge you are working through…"></textarea></div>
-<p class="form-note">Your information will be used solely to respond to your enquiry and will be handled in accordance with our privacy policy. This form is protected against spam. <a href="#">Privacy Policy</a>.</p>
-<div style="position:absolute;left:-9999px" aria-hidden="true"><input id="website" name="website" tabindex="-1" autocomplete="off"/></div>
-<p id="formError" role="alert" hidden></p>
+<p class="form-note">Your information will be used solely to respond to your enquiry and will be handled in accordance with our privacy policy. This form is protected against spam. <a href="/privacy/">Privacy Policy</a>.</p>
+<div aria-hidden="true" style="position:absolute;left:-9999px"><input autocomplete="off" id="website" name="website" tabindex="-1"/></div>
+<p hidden="" id="formError" role="alert"></p>
 <button class="fsub" type="submit">Submit Enquiry →</button>
 </form>
 <div class="form-confirm" id="formConfirm">
@@ -421,7 +421,7 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 <div class="office">
 <div class="sec-label">SE Europe Hub</div>
 <div class="office-city">BELGRADE</div>
-<p class="office-detail">Serbia<br/><br/>Signal / WhatsApp: +381 69 197 1054<br/>norovic@hadleyconsulting.global</p>
+<p class="office-detail">Serbia<br/><br/>Signal / WhatsApp: +381 69 197 1054<br/>nignjatovic@hadleyconsulting.global</p>
 </div>
 <div class="office">
 <div class="sec-label">Asia Pacific HQ</div>
@@ -459,9 +459,9 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 <li><a href="/services/">Defence &amp; Security</a></li>
 </ul>
 </div>
-</footer>
+<p><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Use</a> · <a href="/cookies/">Cookie Notice</a> · </p></footer>
 <div class="f-bottom">
-<span class="f-copy">© 2026 Hadley Consulting Limited. Registered in Hong Kong SAR · No. 76884161</span>
+<span class="f-copy">© 2026 Hadley Consulting Limited. 7F Low Block, Grand Millennium Plaza, 181 Queens Road, Central, Hong Kong · Registered in Hong Kong SAR · No. 76884161</span>
 <span class="f-copy">hadleyconsulting.global</span>
 </div>
 <script>window.addEventListener("scroll",()=>{
@@ -504,6 +504,7 @@ async function submitForm(event){
 document.querySelectorAll("a[href=\"#\"]").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));
 
 document.getElementById("burger").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggleMobile();}});
-</script>
-</body>
+
+document.getElementById("burger").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggleMobile();}});
+</script></body>
 </html>

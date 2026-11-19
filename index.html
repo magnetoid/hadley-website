@@ -73,10 +73,9 @@ nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(14px);padding:14
 .hero-r{position:relative;overflow:hidden;background:var(--mid);}
 .geo-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:52px 52px;}
 .geo-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-.diamond{width:260px;height:260px;border:1px solid rgba(200,255,0,.6);transform:rotate(45deg);transform-origin:center;position:relative;animation:hadley-diamond-spin 30s linear infinite;}
-@keyframes hadley-diamond-spin{from{transform:rotate(45deg);}to{transform:rotate(405deg);}}
-@media(prefers-reduced-motion:reduce){.diamond{animation:none;}}
-.diamond::before{content:"";position:absolute;inset:26px;border:1px solid rgba(200,255,0,.2);}
+.hero-symbol{display:block;width:min(58%,300px);height:auto;max-height:65%;object-fit:contain;transform-origin:center;animation:hadley-symbol-spin 30s linear infinite;}
+@keyframes hadley-symbol-spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@media(prefers-reduced-motion:reduce){.hero-symbol{animation:none;}}
 .geo-badge{position:absolute;bottom:40px;left:40px;border:1px solid var(--border);padding:14px 18px;}
 .geo-badge strong{display:block;font-family:var(--display);font-size:20px;color:var(--accent);letter-spacing:0;margin-bottom:3px;}
 .geo-badge span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
@@ -366,7 +365,7 @@ footer{border-top:1px solid var(--border);padding:52px;display:grid;grid-templat
 </div>
 <div class="hero-r">
 <div class="geo-grid"></div>
-<div class="geo-center"><div class="diamond"></div></div>
+<div class="geo-center"><img class="hero-symbol" src="/assets/hadley-hero-symbol-v1.png" alt="Hadley Consulting symbol" width="385" height="454" fetchpriority="high"/></div>
 <div class="geo-badge">
 <strong>25+</strong>
 <span>Years Senior Advisory</span>
